@@ -1,0 +1,19 @@
+{
+  "name": "marino-devicecheck",
+  "version": "1.0.0",
+  "description": "Sample server for iOS 11's DeviceCheck APIs",
+  "main": "sampleServer.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "jsonwebtoken": "^8.0.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node sampleServer.js"
+  },
+  "author": "Tim Colla, Marino Software",
+  "license": "MIT"
+}
