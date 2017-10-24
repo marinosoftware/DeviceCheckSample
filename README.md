@@ -1,5 +1,7 @@
 # DeviceCheck Sample
-DeviceCheck is a new iOS 11 API that gives you access to two bits of data per-device, per-developer that your associated server can use in its business logic. Here's a fully working sample.
+DeviceCheck is a new iOS 11 API that gives you access to two bits of data per-device, per-developer that your associated server can use in its business logic. You can read more about DeviceCheck on [our blog](https://www.marinosoftware.com/insights/how-to-prevent-fraud-without-compromising-user-privacy-devicecheck-on-ios-11). 
+
+This project contains a fully working sample app and server to demonstrate DeviceCheck on iOS 11. 
 
 # Getting started
 All you have to do in the iOS project is change the host to your NodeJS server's IP. You can do this in ViewController.swift:
