@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var lastUpdated: UILabel!
     
-    let host = "http://192.168.1.146:3000" // Change to your NodeJS server IP:port
+    let host = "http://192.168.1.132:3000" // Change to your NodeJS server IP:port
+    let curDevice = DCDevice.current
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,11 @@ class ViewController: UIViewController {
 
     @IBAction func update(_ sender: UIButton) {
         startActivity()
+        
+        if curDevice.isSupported
+        {
 
-        DCDevice.current.generateToken { (data, error) in
+        curDevice.generateToken { (data, error) in
             if let data = data {
                 let sesh = URLSession(configuration: .default)
                 var req = URLRequest(url: URL(string:self.host+"/update_two_bits")!)
@@ -62,13 +66,21 @@ class ViewController: UIViewController {
             }
             if let error = error {
                 print("Generate Token error:")
-                print(error)
+                print(error.localizedDescription)
             }
+            }
+        } else {
+            print("Platform is not supported. Make sure you aren't running in an emulator.")
+            self.stopActivity()
+            
         }
+
     }
 
     @IBAction func query(_ sender: UIButton) {
         startActivity()
+        if curDevice.isSupported
+        {
 
         DCDevice.current.generateToken { (data, error) in
             if let data = data {
@@ -95,8 +107,13 @@ class ViewController: UIViewController {
             }
             if let error = error {
                 print("Generate Token error:")
-                print(error)
+                print(error.localizedDescription)
             }
+        }
+        } else {
+            print("Platform is not supported. Make sure you aren't running in an emulator.")
+            self.stopActivity()
+            
         }
     }
 
@@ -113,7 +130,7 @@ class ViewController: UIViewController {
                 self.lastUpdated.text = "Last Updated: "+lastUpdated
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 
