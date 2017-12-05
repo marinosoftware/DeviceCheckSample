@@ -32,7 +32,7 @@ if(keyFileName == "") {
   return;
 }
 
-var deviceCheckHost = production ? 'api.apple.com' : 'api.devicecheck.apple.com';
+var deviceCheckHost = production ? 'api.devicecheck.apple.com' : 'api.development.devicecheck.apple.com';
 var cert = fs.readFileSync(keyFileName).toString();
 
 versionRouter.post('/update_two_bits', function(req, response) {
