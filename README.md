@@ -24,7 +24,7 @@ var teamId = "###"; // Can be found at: https://developer.apple.com/account/#/me
 
 var port = 3000;
 
-// Change this to true when you're app is on the App Store
+// Change this to true when your app is on the App Store
 var production = false;
 /****************** End set your values ******************/
 ````
